@@ -40,7 +40,10 @@ public class App {
     ArrayList<IntPred> preds = solver.GetSeparatingPredicates(sets, Long.MAX_VALUE);
     ArrayList<Character> outputs = new ArrayList<Character>(Arrays.asList('a', 'b'));
     Partition partition = new Partition(preds, outputs);
-    ListForPartition listForPartition = new ListForPartition(Arrays.asList(0, 32, 59), partition);
+    ListForPartition listForPartition = new ListForPartition(Arrays.asList(0, 59), partition);
+    System.out.println(listForPartition.getEdge(0, 33));
+    System.out.println(listForPartition.getSymbolImage(34));
+
     ArrayList<Collection<Integer>> lists = listForPartition.buildListsForPartition();
     ArrayList<IntPred> preds2 = solver.GetSeparatingPredicates(lists, Long.MAX_VALUE);
     System.out.println(preds2);
@@ -48,11 +51,11 @@ public class App {
     System.out.println(partition);
     System.out.println(partition.output(34));
     System.out.println(preds);
-    EQOracle eqOracle = new EQOracle();
-    System.out.println(eqOracle.EquivaleneceQuery());
+    UserInputEQOracle eqOracle = new UserInputEQOracle();
+    //System.out.println(eqOracle.EquivaleneceQuery());
     ArrayList<Integer> initialSigmaE = new ArrayList<Integer>(Arrays.asList(0));
     Learner learner = new Learner(partition, initialSigmaE, solver);
-    learner.learn();
+    //learner.learn();
   }
 
 

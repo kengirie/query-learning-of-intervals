@@ -19,7 +19,7 @@ public class Learner {
 
   public void learn() throws TimeoutException {
     ListForPartition listForPartition = new ListForPartition(initialSigmaE, targetPartition);
-    EQOracle eqOracle = new EQOracle();
+    UserInputEQOracle eqOracle = new UserInputEQOracle();
     while (true) {
       ArrayList<Collection<Integer>> lists = listForPartition.buildListsForPartition();
       ArrayList<IntPred> preds = solver.GetSeparatingPredicates(lists, Long.MAX_VALUE);
